@@ -9,4 +9,8 @@ export default class extends ApplicationController {
 
     this.stimulate("transaction#add", event.target);
   }
+
+  remove(event) {
+    this.stimulate("transaction#remove", event.target);
+  }
 }

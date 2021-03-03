@@ -17,7 +17,7 @@
 
   <ul>
     <% @transactions.each do |tx| %>
-    <li><%= tx.name =%> - <%= tx.amount =%>Baht</li>
+    <li><%= tx.name =%> - <%= tx.amount =%>Baht <a href="" data-action="click->transaction#remove" data-id="<%= tx.id =%>">[x]</a></li>
     <% end %>
   </ul>
 </div>
