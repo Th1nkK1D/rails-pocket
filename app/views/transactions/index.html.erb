@@ -1,7 +1,23 @@
-<h1>Transactions#index</h1>
+<div data-controller="transaction">
+  <h1>Transactions</h1>
 
-<ul>
-  <% @transactions.each do |tx| %>
-    <li><%= tx.name =%> - <%= tx.amount =%>Baht</li>
+  <%= form_with model: Transaction.new, data: { action: "submit->transaction#add" } do |form| %>
+  <div>
+    <%= form.label "Name" %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label "Amount" %><br>
+    <%= form.number_field :amount %>
+  </div>
+
+  <button>Add</button>
   <% end %>
-</ul>
+
+  <ul>
+    <% @transactions.each do |tx| %>
+    <li><%= tx.name =%> - <%= tx.amount =%>Baht</li>
+    <% end %>
+  </ul>
+</div>
