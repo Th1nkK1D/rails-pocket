@@ -1,23 +1,26 @@
-<div data-controller="transaction">
-  <h1>Transactions</h1>
+<div class="flex w-full h-full min-h-screen px-4 py-12" data-controller="transaction">
+  <div class="flex-1 flex flex-col w-full max-w-lg mx-auto space-y-6">
+    <div class="space-y-1">
+      <h1 class="text-4xl font-bold text-blue-800">Rails-Pocket</h1>
+      <p class="text-blue-400">Money pocket experimenting Reactive Rails (Ruby on Rails x StimulusReflex)</p>
+    </div>
 
-  <%= form_with model: Transaction.new, data: { action: "submit->transaction#add" } do |form| %>
-  <div>
-    <%= form.label "Name" %><br>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label "Amount" %><br>
-    <%= form.number_field :amount %>
-  </div>
-
-  <button>Add</button>
-  <% end %>
-
-  <div>
-    <% @transactions.each do |tx| %>
-    <%= render(TransactionCardComponent.new(transaction: tx)) %>
+    <%= form_with model: Transaction.new, data: { action: "submit->transaction#add" }, class: "flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2" do |form| %>
+      <%= render(TextInputComponent.new(form: form, label: "Name", field: :name)) %>
+      <%= render(TextInputComponent.new(form: form, label: "Amount", field: :amount)) %>
+      <div class="flex">
+        <button type="submit" class="mt-auto rounded border border-green-400 px-4 py-1 text-green-400">Add</button>
+      </div>
     <% end %>
+
+    <div class="flex-1 flex flex-col space-y-4">
+      <% @transactions.each do |tx| %>
+        <%= render(TransactionCardComponent.new(transaction: tx)) %>
+      <% end %>
+    </div>
+
+    <div class="text-blue-300 text-xs text-center">
+      &copy; Th1nkK1D 2020
+    </div>
   </div>
 </div>
