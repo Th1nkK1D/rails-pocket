@@ -1,6 +1,8 @@
 {
-  "name": "pocket",
-  "private": true,
+  "name": "rails-pocket",
+  "description": "Money pocket experiment with Reactive Rails (Ruby on Rails x StimulusReflex)",
+  "repository": "https://github.com/Th1nkK1D/rails-pocket.git",
+  "author": "Th1nkK1D <witheep@gmail.com>",
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
