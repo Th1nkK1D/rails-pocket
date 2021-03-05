@@ -10,6 +10,10 @@ export default class extends ApplicationController {
     this.stimulate("transaction#add", event.target);
   }
 
+  addSuccess(element) {
+    element.querySelectorAll("input").forEach((input) => (input.value = ""));
+  }
+
   remove(event) {
     this.stimulate("transaction#remove", event.target);
   }
