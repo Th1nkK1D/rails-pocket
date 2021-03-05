@@ -15,9 +15,9 @@
   <button>Add</button>
   <% end %>
 
-  <ul>
+  <div>
     <% @transactions.each do |tx| %>
-    <li><%= tx.name =%> - <%= tx.amount =%>Baht <a href="" data-action="click->transaction#remove" data-id="<%= tx.id =%>">[x]</a></li>
+    <%= render(TransactionCardComponent.new(transaction: tx)) %>
     <% end %>
-  </ul>
+  </div>
 </div>
